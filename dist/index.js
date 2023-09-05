@@ -35,7 +35,7 @@ class User {
         let i = 0;
         for (let itm of this.cart) {
             if (itm == item) {
-                this.cart.splice(i);
+                this.cart.splice(i, 1);
             }
             i++;
         }
@@ -45,7 +45,7 @@ class User {
         let j = 0;
         for (let itm of this.cart) {
             if (itm == item && j < quantity) {
-                this.cart.splice(i);
+                this.cart.splice(i, 1);
                 j++;
             }
             i++;
@@ -62,3 +62,35 @@ function createItem(name, price, description) {
     let newItem = new Item(itemUuid, name, price, description);
     return newItem;
 }
+
+
+// testing
+let jamie = createUser('Jamie', '19');
+
+let banana = createItem('banana', 3, 'a banana');
+let apple = createItem('apple', 3, 'an apple');
+let orange = createItem('orange', 3, 'an orange');
+
+jamie.addToCart(banana);
+jamie.printCart();
+console.log(jamie.cartTotal());
+
+jamie.addToCart(apple);
+jamie.addToCart(apple);
+jamie.addToCart(apple);
+jamie.printCart();
+console.log(jamie.cartTotal());
+
+jamie.addToCart(orange);
+jamie.addToCart(orange);
+jamie.addToCart(orange);
+jamie.printCart();
+console.log(jamie.cartTotal());
+
+jamie.removeFromCart(apple);
+jamie.printCart();
+console.log(jamie.cartTotal());
+
+jamie.removeQuantityFromCart(orange, 2);
+jamie.printCart();
+console.log(jamie.cartTotal());

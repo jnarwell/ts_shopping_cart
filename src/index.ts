@@ -49,7 +49,7 @@ class User{
         let i = 0;
         for (let itm of this.cart){
             if (itm == item){
-                this.cart.splice(i);
+                this.cart.splice(i, 1);
             }
             i++;
         }
@@ -60,7 +60,7 @@ class User{
         let j = 0;
         for (let itm of this.cart){
             if (itm == item && j < quantity){
-                this.cart.splice(i);
+                this.cart.splice(i, 1);
                 j++;
             }
             i++;
