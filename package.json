@@ -1,0 +1,21 @@
+{
+  "name": "ts_shopping_cart",
+  "version": "1.0.0",
+  "description": "a shopping cart program",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "shopping"
+  ],
+  "author": "Jamie Marwell",
+  "license": "ISC",
+  "dependencies": {
+    "typescript": "^5.2.2",
+    "uuid": "^9.0.0"
+  },
+  "devDependencies": {
+    "@types/uuid": "^9.0.3"
+  }
+}
