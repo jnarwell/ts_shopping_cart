@@ -1,31 +1,49 @@
 import { v4 as uuidv4 } from "uuid";
 
 class Item{
-    id:string;
-    name:string;
-    price:number;
-    description:string;
+    private _id:string;
+    private _name:string;
+    private _price:number;
+    private _description:string;
 
     constructor(id:string, name:string, price:number, description:string){
-        this.id = id;
-        this.name = name;
-        this.price = price;
-        this.description = description;
+        this._id = id;
+        this._name = name;
+        this._price = price;
+        this._description = description;
     }
+
+    get name(){return this._name;}
+    get price(){return this._price;}
+    get description(){return this._description;}
+    get id(){return this._id;}
+
+    set name(thisName:string){this._name=thisName;}
+    set price(thisPrice:number){this._price=thisPrice;}
+    set description(thisDesc:string){this._description=thisDesc;}
+    set id(thisId:string){this._id=thisId;}
 }
 
 class User{
-    id:string;
-    name:string;
-    age:number; 
-    cart:Item[];
+    private _id:string;
+    private _name:string;
+    private _age:number; 
+    private cart:Item[];
 
     constructor(id:string, name:string, age:number, cart:Item[]){
-        this.id = id;
-        this.name = name;
-        this.age = age;
+        this._id = id;
+        this._name = name;
+        this._age = age;
         this.cart = cart;
     }
+
+    get name(){return this._name;}
+    get price(){return this._age;}
+    get id(){return this._id;}
+
+    set name(thisName:string){this._name=thisName;}
+    set price(thisAge:number){this._age=thisAge;}
+    set id(thisId:string){this._id=thisId;}
 
     cartTotal():number{
         let cartTotal:number = 0;
@@ -66,6 +84,20 @@ class User{
             i++;
         }
     }
+}
+
+class Shop{
+    private _inventory:Item[] = [];
+    
+    constructor(){
+        let banana = createItem('banana', 3, 'a banana');
+        let apple = createItem('apple', 3, 'an apple');
+        let orange = createItem('orange', 3, 'an orange');
+        this._inventory.push(banana, apple, orange);
+    }
+
+    get inventory():Item[]{return this._inventory}
+    //set inventory(thisInventory){this._inventory = thisInventory}
 }
 
 function createUser(name:string, age:number):User{
